@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <style>
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+        -moz-appearance: textfield;
+        }
+
+        body{
+            background-color: #1D2021;
+            color: white;
+        }
+    </style>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="row">
+
+        <div class="col s4 offset-s4">
+
+            <div class="card yellow darken-1 z-depth-3">
+                <div class="card-content">
+                    <div class="row" style="margin-top: 10%;">
+                        <div class="input-field col s6">
+                            <input type="number" class="validate" id="in_num_antipasti" value="1">
+                            <label for="in_num_antipati" class="black-text"># Antipasti:</label>
+                        </div>
+        
+                        <div class="input-field col s6">
+                            <input type="number" class="validate" id="in_num_primi" value="1">
+                            <label for="in_num_primi" class="black-text"># Primi:</label>
+                        </div>
+        
+                        <div class="input-field col s6">
+                            <input type="number" class="validate" id="in_num_secondi" value="1">
+                            <label for="in_num_secondi" class="black-text"># Secondi:</label>
+                        </div>
+        
+                        <div class="input-field col s6">
+                            <input type="number" class="validate" id="in_num_dolci" value="1">
+                            <label for="in_num_dolci" class="black-text"># Dolci:</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <button class="btn waves-effect waves-light orange darken-4" id="btn_generate"><i class="material-icons left">shuffle</i>Genera Ricette</button>
+                    <button class="btn waves-effect waves-light red darken-3" id="btn_reset"><i class="material-icons left">cancel</i>Reset</button>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+
+    <div class="container">
+        <div id="div_antipasti"></div>
+        <div id="div_primi"></div>
+        <div id="div_secondi"></div>
+        <div id="div_dolci"></div>
+    </div>
+
+    <div style="height: 500px;"></div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="js/utils.js"></script>
+    <script src="js/structs.js"></script>
+    <script src="js/index.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('select').formSelect();
+        });
+    </script>
+</body>
+</html>
