@@ -65,10 +65,11 @@ class Quantity{
 
     static generate( measure=Measure.Kg, useRandom=true ) {
         let m = measure;
+        let useRnd = useRandom;
         if ( m != Measure.Kg ) {
-            useRandom = false;
+            useRnd = false;
         }
-        if ( useRandom ) {
+        if ( useRnd ) {
             m = getRandomObjItem(Measure);
         }
         let M = 0;
