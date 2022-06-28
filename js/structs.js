@@ -135,7 +135,7 @@ class RecipeIngredient {
     static generate( ingredientsArray ) {
         let ingredient = getRandomArrayItem( ingredientsArray );
         let measure = getRandomArrayItem( ingredient.measures );
-        let quantity = Quantity.generate(measure, useRandom=false);
+        let quantity = Quantity.generate(measure, false);
         return new RecipeIngredient(ingredient, quantity);
     }
 

@@ -131,7 +131,7 @@ function generateRecipe() {
 }
 
 function addRecipes() {
-    reset(values=false);
+    reset(false);
     for (let i=0; i<getNumRecipe(); i++) {
         addRecipe(generateRecipe(), i);
     }
