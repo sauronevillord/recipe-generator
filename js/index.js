@@ -49,7 +49,7 @@ function addRecipe( recipe, num, append=true ){
     `)
 }
 
-function reset() {
+function reset(values=true) {
     // inNumAntipasti.val(0);
     // inNumPrimi.val(0);
     // inNumSecondi.val(0);
@@ -59,9 +59,10 @@ function reset() {
     // divPrimi.empty();
     // divSecondi.empty();
     // divDolci.empty();
-
-    inNum.val(1);
-    inNumIngr.val(MAX_INGREDIENTS);
+    if ( values ) {
+        inNum.val(1);
+        inNumIngr.val(MAX_INGREDIENTS);
+    }
     divRicette.empty();
 }
 
@@ -130,7 +131,7 @@ function generateRecipe() {
 }
 
 function addRecipes() {
-    reset();
+    reset(values=false);
     for (let i=0; i<getNumRecipe(); i++) {
         addRecipe(generateRecipe(), i);
     }
