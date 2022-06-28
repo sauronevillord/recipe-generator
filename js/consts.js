@@ -158,8 +158,8 @@ const TITLES =  [
     "$1 vegetariano",
     "$1 vegano",
     "$1 carnivoro",
-    "panino con $1 e $2",
-    "pasta con $1",
+    "Panino con $1 e $2",
+    "Pasta con $1",
     "$1 con spruzzatina di $2",
     "$1 e $2 con sapore di $3",
     "$1 con contorno di $2",
@@ -168,7 +168,13 @@ const TITLES =  [
     "$1 all'americana",
     "$1 messicano con $2",
     "$1 con sapori di giappone",
-    "filetto di $1 alla milanese",
+    "Filetto di $1 alla milanese",
+    "$1 al sugo di $2",
+    "$1 al sugo di $2 e $3",
+    "Cous cous di $1",
+    "Cous cous di $1 con contorno di $2",
+    "Sugo al $1",
+    "Insalata di $1",
 ]
 
 const ACTIONS = [
