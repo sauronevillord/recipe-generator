@@ -1,7 +1,7 @@
 const Measure = {
     Kg: "kg",
     g: "g",
-    ciotola: "ciotola",
+    ciotola: "ciotole",
     pizzico: "pizzichi",
     cucchiaino: "cucchiaini",
     cucchiaio: "cucchiai",
