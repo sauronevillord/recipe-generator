@@ -54,7 +54,7 @@ const inNumIngr = $('#in_num_ingr');
 const divRicette = $('#div_ricette');
 
 function getNumRecipe() {
-    return Math.max(0, inNum.val());
+    return Math.max(1, inNum.val());
 }
 
 function getNumIngr() {
@@ -62,19 +62,19 @@ function getNumIngr() {
 }
 
 // function getNumAntipasti() {
-//     return Math.max(0, inNumAntipasti.val());
+//     return Math.max(1, inNumAntipasti.val());
 // }
 
 // function getNumPrimi() {
-//     return Math.max(0, inNumPrimi.val());
+//     return Math.max(1, inNumPrimi.val());
 // }
 
 // function getNumSecondi() {
-//     return Math.max(0, inNumSecondi.val());
+//     return Math.max(1, inNumSecondi.val());
 // }
 
 // function getNumDolci() {
-//     return Math.max(0, inNumDolci.val());
+//     return Math.max(1, inNumDolci.val());
 // }
 
 // ----------------------- Recipes and Ingredients related -------------------------------------- //
