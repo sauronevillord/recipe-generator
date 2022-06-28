@@ -34,30 +34,75 @@ function getRandomObjItem(obj) {
     return obj[ getObjItemFromIndex( obj, Math.floor ( Math.random() * objSize(obj) ) ) ];
 }
 
+function randomInt( min=0, max=10 ) {
+    return Math.floor ( Math.random() * (max - min) ) + min;
+}
+
 // ----------------------- Input Num Ricette -------------------------------------- //
 
-const inNumAntipasti = $('#in_num_antipasti');
-const inNumPrimi = $('#in_num_primi');
-const inNumSecondi = $('#in_num_secondi');
-const inNumDolci = $('#in_num_dolci');
+// const inNumAntipasti = $('#in_num_antipasti');
+// const inNumPrimi = $('#in_num_primi');
+// const inNumSecondi = $('#in_num_secondi');
+// const inNumDolci = $('#in_num_dolci');
+const inNum = $('#in_num');
+const inNumIngr = $('#in_num_ingr');
 
-const divAntipasti = $('#div_antipasti');
-const divPrimi = $('#div_primi');
-const divSecondi = $('#div_secondi');
-const divDolci = $('#div_dolci');
+// const divAntipasti = $('#div_antipasti');
+// const divPrimi = $('#div_primi');
+// const divSecondi = $('#div_secondi');
+// const divDolci = $('#div_dolci');
+const divRicette = $('#div_ricette');
 
-function getNumAntipasti() {
-    return Math.max(0, inNumAntipasti.val());
+function getNumRecipe() {
+    return Math.max(0, inNum.val());
 }
 
-function getNumPrimi() {
-    return Math.max(0, inNumPrimi.val());
+function getNumIngr() {
+    return Math.max(0, inNumIngr.val());
 }
 
-function getNumSecondi() {
-    return Math.max(0, inNumSecondi.val());
+// function getNumAntipasti() {
+//     return Math.max(0, inNumAntipasti.val());
+// }
+
+// function getNumPrimi() {
+//     return Math.max(0, inNumPrimi.val());
+// }
+
+// function getNumSecondi() {
+//     return Math.max(0, inNumSecondi.val());
+// }
+
+// function getNumDolci() {
+//     return Math.max(0, inNumDolci.val());
+// }
+
+// ----------------------- Recipes and Ingredients related -------------------------------------- //
+
+function getRandomIngredientName( ingredientsArray ) {
+    return getRandomArrayItem(ingredientsArray).ingredient.name;
 }
 
-function getNumDolci() {
-    return Math.max(0, inNumDolci.val());
+function ingredientsToString( ingredients ) {
+    let str = "";
+
+    ingredients.forEach( (ingredient) => {
+        str += ingredient.toStr() + "\n";
+    });
+
+    return str;
+}
+
+function recipeIngredientsToString( recipe ) {
+    return ingredientsToString(recipe["ingredients"]);
+}
+
+function areThereIngredients( recipe ) {
+    recipe["ingredients"].forEach( (ingredient) => {
+        if ( ingredient.isThereMore() ) {
+            return true;
+        }
+    });
+
+    return false;
 }

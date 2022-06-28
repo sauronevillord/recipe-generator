@@ -12,25 +12,17 @@ const Measure = {
 }
 
 const liquid = [Measure.l, Measure.cl, Measure.ml];
-
 const heavy = [Measure.Kg];
-
 const light = [Measure.g];
-
 const lightLiquid = [Measure.cl, Measure.ml];
-
 const heavyLiquid = [Measure.l];
-
 const powder = [Measure.pizzico, Measure.cucchiaio, Measure.cucchiaino];
-
 const grabbable = [Measure.cucchiaino, Measure.cucchiaio, Measure.g];
-
 const group = [Measure.ciotola, Measure.g, Measure.Kg];
-
 const divisible = [Measure.g, Measure.spicchio];
 
 function both( first, second ) {
-    first.concat(second);
+    return first.concat(second);
 }
 
 function all( arr ) {
@@ -42,14 +34,15 @@ function all( arr ) {
 }
 
 class Ingredient{
-    constructor( name, measures ){
+    constructor( name, measures, art="il" ){
         this.name = name;
         this.measures = measures;
+        this.art = art;
     }
 }
 
-function i( name, measures ){
-    return new Ingredient(name, measures);
+function i( name, measures, art ){
+    return new Ingredient(name, measures, art);
 }
 
 class Quantity{
@@ -68,6 +61,10 @@ class Quantity{
 
     canUse(x) {
         return x <= this.currQuantity;
+    }
+
+    isThereMore() {
+        return this.currQuantity > 0;
     }
 
     toStr() {
@@ -121,4 +118,32 @@ class Quantity{
 
         return new Quantity( Math.random() * M, m );
     }
+}
+
+class RecipeIngredient {
+    
+    constructor( ingredient, quantity ) {
+        this.ingredient = ingredient;
+        this.quantity = quantity;
+    }
+
+    toStr() {
+        return this.ingredient.name + ": " + this.quantity.toStr();
+    }
+
+    inSentence() {
+        return this.ingredient.art + " " + this.ingredient.name;
+    }
+
+    isThereMore() {
+        return this.quantity.isThereMore();
+    }
+
+    static generate( ingredientsArray ) {
+        let ingredient = getRandomArrayItem( ingredientsArray );
+        let measure = getRandomArrayItem( ingredient.measures );
+        let quantity = Quantity.generate(measure);
+        return new RecipeIngredient(ingredient, quantity);
+    }
+
 }
