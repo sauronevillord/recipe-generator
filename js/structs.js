@@ -25,14 +25,6 @@ function both( first, second ) {
     return first.concat(second);
 }
 
-function all( arr ) {
-    let a = [];
-    for(let i=0; i<arr.length; i++) {
-        a = a.concat(arr[i]);
-    }
-    return a;
-}
-
 class Ingredient{
     constructor( name, measures, art="il" ){
         this.name = name;
@@ -142,7 +134,7 @@ class RecipeIngredient {
     static generate( ingredientsArray ) {
         let ingredient = getRandomArrayItem( ingredientsArray );
         let measure = getRandomArrayItem( ingredient.measures );
-        let quantity = Quantity.generate(measure);
+        let quantity = Quantity.generate(measure, useRandom=false);
         return new RecipeIngredient(ingredient, quantity);
     }
 
